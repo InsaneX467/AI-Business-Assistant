@@ -1,18 +1,20 @@
 import mongoose from 'mongoose';
 
+export const LEAD_STATUS_ENUM = ['New', 'Contacted', 'Qualified', 'Converted', 'Not Interested'];
+
 const leadSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: [true, 'Name is required'],
       trim: true,
-      minlength: [2, 'Name must be at least 2 characters long']
+      minlength: [2, 'Name must be at least 2 characters long'],
+      maxlength: [100, 'Name cannot exceed 100 characters']
     },
     phone: {
       type: String,
       required: [true, 'Phone number is required'],
-      trim: true,
-      minlength: [7, 'Phone number must be valid']
+      trim: true
     },
     email: {
       type: String,
@@ -24,7 +26,16 @@ const leadSchema = new mongoose.Schema(
     requirement: {
       type: String,
       required: [true, 'Requirement/Interest is required'],
-      trim: true
+      trim: true,
+      maxlength: [1000, 'Requirement cannot exceed 1000 characters']
+    },
+    status: {
+      type: String,
+      enum: {
+        values: LEAD_STATUS_ENUM,
+        message: '{VALUE} is not a valid lead status'
+      },
+      default: 'New'
     }
   },
   {

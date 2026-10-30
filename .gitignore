@@ -20,3 +20,18 @@ yarn-error.log*
 .DS_Store
 .vscode/
 .idea/
+
+# Python & AI Service
+.venv/
+venv/
+__pycache__/
+*.pyc
+ai-service/.venv/
+ai-service/models/*/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+.huggingface/
+.cache/

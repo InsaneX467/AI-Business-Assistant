@@ -1,0 +1,181 @@
+{
+  "business": {
+    "name": "ABC Academy",
+    "tagline": "Premier Coaching for NEET & JEE (Main + Advanced)",
+    "description": "ABC Academy is a premier coaching institute providing rigorous classroom coaching, national test series, and personalized mentoring for JEE (Engineering) and NEET (Medical) aspirants. [Demo Mode: Realistic Sample Data]",
+    "location": "Plot 42, Education Hub, Near Metro Pillar 118, Knowledge City, Pin 110092",
+    "phone": "+91 98765 43210",
+    "email": "admissions@abcacademy.demo",
+    "website": "https://www.abcacademy.demo",
+    "working_hours": "Monday to Saturday: 7:30 AM - 8:30 PM, Sunday: 8:00 AM - 2:00 PM"
+  },
+  "demo_notice": "DEMO MODE NOTICE: All course offerings, fees, batch schedules, faculty citations, and contact numbers in this profile are realistic demonstration models created to showcase the AI Business Assistant. Unverified fee estimates and schedules are illustrative.",
+  "courses": [
+    {
+      "id": "neet-medical-2yr",
+      "name": "NEET-UG 2-Year Medical Master Program (Class 11 & 12)",
+      "description": "Comprehensive 2-year classroom coaching program covering Class 11 and 12 Physics, Chemistry, and NCERT Biology line-by-line with 120+ weekly mock tests, Daily Practice Problems (DPP), and personalized doubt clearance desks.",
+      "duration": "2 Years (Class 11th + 12th till NEET-UG Exam)",
+      "fee": "₹1,35,000 / year (Sample Demo Fee — Up to 90% scholarship available through ATSE scholarship test)",
+      "eligibility": "Students passing Class 10th or moving to Class 11th with Science (PCB/PCMB).",
+      "mode": [
+        "Offline Classroom Coaching",
+        "Hybrid (Live Interactive Classes + Recorded Library)"
+      ],
+      "class_timings": "Morning Batch: 8:00 AM - 12:30 PM | Evening Batch: 4:00 PM - 7:30 PM | Weekend Intensive: Saturday 2:00 PM - 7:00 PM & Sunday 8:30 AM - 2:00 PM",
+      "prerequisites": "Class 10 Science & Mathematics fundamentals",
+      "career_outcomes": "NEET-UG Medical Entrance, AIIMS, JIPMER, State Government Medical Colleges (MBBS/BDS)"
+    },
+    {
+      "id": "jee-integrated-2yr",
+      "name": "JEE (Main + Advanced) 2-Year Integrated Program (Class 11 & 12)",
+      "description": "Rigorous 2-year coaching for engineering aspirants targeting IITs, NITs, and IIITs. In-depth coverage of Class 11 & 12 Physics, Chemistry, and Advanced Mathematics with concept drills, Olympiad integration, and 150+ full-length CBT tests.",
+      "duration": "2 Years (Class 11th + 12th till JEE Advanced Exam)",
+      "fee": "₹1,45,000 / year (Sample Demo Fee — Up to 90% scholarship available through ATSE scholarship test)",
+      "eligibility": "Students passing Class 10th or moving to Class 11th with Science (PCM/PCMB).",
+      "mode": [
+        "Offline Classroom Coaching",
+        "Hybrid (Live Interactive Classes + Recorded Library)"
+      ],
+      "class_timings": "Morning Batch: 8:00 AM - 12:30 PM | Evening Batch: 4:00 PM - 7:30 PM | Weekend Intensive: Saturday 2:00 PM - 7:00 PM & Sunday 8:30 AM - 2:00 PM",
+      "prerequisites": "Class 10 Mathematics and Science",
+      "career_outcomes": "IIT JEE Advanced, JEE Main, BITSAT, IISER, Top NITs / IIITs"
+    },
+    {
+      "id": "neet-dropper-1yr",
+      "name": "NEET-UG 1-Year Dropper / Repeater Achiever Batch",
+      "description": "Fast-track 1-year rank-booster program exclusively designed for 12th pass students. Intensive daily testing, NCERT speed-reading techniques, high-yield revision modules, and 60+ full-syllabus All-India Mock Tests.",
+      "duration": "1 Year (Full-time intensive cohort)",
+      "fee": "₹90,000 (Sample Demo Fee — Installment plans & merit scholarships available)",
+      "eligibility": "Class 12 pass students with Physics, Chemistry, and Biology (minimum 50% marks in 12th boards).",
+      "mode": [
+        "Offline Classroom Coaching",
+        "Live Online Classroom"
+      ],
+      "class_timings": "Monday to Friday: 8:30 AM - 3:00 PM (Includes 2 hours daily supervised self-study & doubt desk)",
+      "prerequisites": "Completed Class 12th Board Examinations with Science (PCB)",
+      "career_outcomes": "Target 650+ Score in NEET-UG for Top Government Medical Colleges"
+    },
+    {
+      "id": "jee-dropper-1yr",
+      "name": "JEE 1-Year Dropper / Repeater Rank Booster Cohort",
+      "description": "Intensive 1-year program for JEE repeaters focusing on multi-concept problem solving, speed accuracy, time management, and mock test analysis with senior IITian mentors.",
+      "duration": "1 Year (Full-time intensive cohort)",
+      "fee": "₹95,000 (Sample Demo Fee — Installment plans & merit scholarships available)",
+      "eligibility": "Class 12 pass students with Physics, Chemistry, and Mathematics.",
+      "mode": [
+        "Offline Classroom Coaching",
+        "Live Online Classroom"
+      ],
+      "class_timings": "Monday to Friday: 8:30 AM - 3:30 PM (Lectures + Guided Problem Solving sessions)",
+      "prerequisites": "Completed Class 12th Board Examinations with Science (PCM)",
+      "career_outcomes": "Top 99+ Percentile in JEE Main & Top Rank in JEE Advanced"
+    },
+    {
+      "id": "foundation-olympiad",
+      "name": "Foundation & Olympiad Program (Class 9 & 10 Pre-JEE/NEET)",
+      "description": "Early foundation program designed to develop critical thinking, logical reasoning, and deep conceptual understanding in Physics, Chemistry, Biology, and Mathematics. Prepares students for NTSE, IJSO, PRMO, and builds a solid launchpad for Class 11th JEE/NEET.",
+      "duration": "1 Year per class (Class 9th or Class 10th)",
+      "fee": "₹48,000 / year (Sample Demo Fee)",
+      "eligibility": "Students currently enrolled in or moving to Class 9 or Class 10.",
+      "mode": [
+        "Offline Classroom Coaching",
+        "Hybrid Live Classes"
+      ],
+      "class_timings": "3 Days a Week (Tue, Thu, Sat): 4:30 PM - 7:00 PM or Weekend Batch: Saturday 3:00 PM - 6:30 PM & Sunday 9:00 AM - 1:00 PM",
+      "prerequisites": "School-level Science and Mathematics",
+      "career_outcomes": "Strong foundation for Class 11-12 JEE/NEET, School Board Toppers, NTSE & Olympiad Qualifications"
+    }
+  ],
+  "course_comparison": {
+    "neet_vs_jee": "NEET-UG program is tailored for medical aspirants with intensive focus on NCERT Biology (Zoology & Botany), Physics, and Chemistry. JEE program focuses on advanced mathematical proofs, calculus, physical mechanics, and multi-concept problem solving for IIT entrance.",
+    "dropper_vs_integrated": "The 2-Year Integrated Program synchronizes with Class 11 & 12 board syllabi, while the Dropper Batch is a fast-paced 1-year program focused purely on entrance syllabus revision and high-frequency test series.",
+    "foundation_benefit": "Starting in Class 9 or 10 through our Foundation Program builds analytical problem-solving skills early, giving students a 2-year head start before entering Class 11 competition."
+  },
+  "career_and_placement": {
+    "scholarship_support": "ABC Academy conducts the ABC Talent Scholarship Exam (ATSE), offering up to 90% scholarship waiver on tuition fees based on merit performance.",
+    "mentorship": "Students receive 1-on-1 mentorship from IIT and AIIMS alumni faculty, with personalized performance diagnostic tracking.",
+    "test_series": "Includes the All-India Test Series (AITS) simulating the official NTA computer-based test interface with national percentile rankings."
+  },
+  "facilities": [
+    "Air-conditioned Smart Classrooms equipped with interactive digital boards and ergonomic study seating.",
+    "Dedicated Daily Doubt-Clearing Desks with senior faculty available from 8:00 AM to 8:00 PM.",
+    "Comprehensive Silence Study Library & Reading Rooms with 5,000+ reference volumes and previous year papers.",
+    "All-India Test Series (AITS) matching the exact NTA computer-based test (CBT) environment.",
+    "AI-Powered Online Student Portal with recorded lectures, chapter-wise mock tests, and weak-area performance analytics.",
+    "Biometric Attendance & Automatic Parent SMS notifications for lecture attendance and test scores.",
+    "Verified hostel and safe transport recommendations available for outstation students."
+  ],
+  "admission": {
+    "process": [
+      "Step 1: Register online or visit campus for the ABC Talent Scholarship Exam (ATSE).",
+      "Step 2: Attend the 60-minute ATSE aptitude test and receive your merit scholarship score (up to 90% fee waiver).",
+      "Step 3: Attend a 1-on-1 academic counseling session with parents to select preferred batch timings (Morning/Evening/Weekend).",
+      "Step 4: Complete admission paperwork and pay fees via one-time discount or flexible 3-installment interest-free plan."
+    ],
+    "documents_required": [
+      "Photocopy of Class 10th / previous academic marksheet",
+      "3 passport-sized recent photographs of student",
+      "Aadhaar card or valid government identity proof (student & parent)",
+      "ATSE Scholarship test scorecard / admit card"
+    ],
+    "installment_options": "All course fees can be paid in 2, 3, or 4 interest-free monthly installments. A 5% discount is offered on full one-time fee payments. [Sample Demo Terms]"
+  },
+  "refund_cancellation": {
+    "policy": "ABC Academy offers a 100% tuition fee refund (excluding registration charge) within 10 days of batch commencement if the student is unsatisfied. Post 10 days, remaining fees can be adjusted towards future cohorts or sibling enrollments upon written review. [Demo Mode: Sample Policy]",
+    "demo_classes": "Every prospective student is entitled to attend 2 free demo / trial classes before finalizing enrollment."
+  },
+  "policies": {
+    "attendance_policy": "Minimum 85% attendance is required in lectures and mandatory participation in all weekly mock tests.",
+    "discipline": "Strict academic discipline is maintained on campus with distraction-free phone lockers during classroom and study hall hours.",
+    "parent_teacher_meetings": "Monthly PTMs and weekly automated SMS test reports are provided to keep parents fully informed of student progress."
+  },
+  "contact": {
+    "call_back_policy": "Leave your name and phone number with our AI Assistant or click 'Request Callback'. An admissions counselor will call back within 24 business hours to assist with batch selection and scholarship registration.",
+    "phone": "+91 98765 43210",
+    "email": "admissions@abcacademy.demo",
+    "address": "Plot 42, Education Hub, Near Metro Pillar 118, Knowledge City, Pin 110092"
+  },
+  "faq": [
+    {
+      "question": "What courses do you offer?",
+      "answer": "ABC Academy offers specialized coaching for NEET and JEE: 2-Year Integrated NEET (Class 11-12), 2-Year Integrated JEE (Class 11-12), 1-Year NEET Droppers Batch, 1-Year JEE Droppers Batch, and Class 9-10 Foundation & Olympiad programs. [Sample Demo Data]"
+    },
+    {
+      "question": "What are the course fees?",
+      "answer": "Sample Demo Fees: 2-Year JEE is approx ₹1,45,000/yr; 2-Year NEET is approx ₹1,35,000/yr; 1-Year Dropper batches are ₹90,000-₹95,000; and Foundation (Class 9/10) is ₹48,000/yr. Up to 90% scholarship is available through our ATSE scholarship test, and 3-month zero-interest installments are accepted. (Note: These are sample demo estimates)."
+    },
+    {
+      "question": "What are the batch timings?",
+      "answer": "We offer flexible timings: Morning Batches (8:00 AM - 12:30 PM), Evening Batches (4:00 PM - 7:30 PM), and Weekend Batches (Sat 2:00 PM - 7:00 PM, Sun 8:30 AM - 2:00 PM). Droppers batches run Monday to Friday from 8:30 AM to 3:00 PM."
+    },
+    {
+      "question": "Do you offer scholarship tests?",
+      "answer": "Yes! We conduct the ABC Talent Scholarship Exam (ATSE), where students can earn up to 90% tuition fee waiver based on their performance in Science, Maths, and Logical Aptitude."
+    },
+    {
+      "question": "Can I attend demo or trial classes before enrolling?",
+      "answer": "Yes! ABC Academy offers 2 free trial/demo classes so students can experience our faculty teaching methodology and doubt support before formal admission."
+    },
+    {
+      "question": "Do you offer separate batches for 12th pass / dropper students?",
+      "answer": "Yes, we offer dedicated full-time 1-Year Dropper/Repeater cohorts for both NEET-UG (Achiever Batch) and JEE (Rank Booster Cohort) with daily 6-hour rigorous instruction and testing."
+    },
+    {
+      "question": "How do doubt-clearing sessions work?",
+      "answer": "We have dedicated Doubt Clearing Desks open daily from 8:00 AM to 8:00 PM where students can sit 1-on-1 with expert faculty to resolve tricky questions and test errors."
+    },
+    {
+      "question": "Do you provide hostel or transport facilities?",
+      "answer": "ABC Academy provides tie-up verified hostel recommendations with dedicated study environments within 1 km of campus, along with optional daily AC bus transport across major city routes. [Sample demo info]"
+    },
+    {
+      "question": "Can someone call me for admission guidance?",
+      "answer": "Yes! If you share your name and phone number (or click 'Request Callback'), our senior academic counselor will call you within 24 business hours to discuss batch options, scholarship tests, and preparation strategy."
+    },
+    {
+      "question": "What happens if a student misses a lecture?",
+      "answer": "All classroom lectures are recorded in high-definition and uploaded to the online student portal within 24 hours, along with annotated teacher notes and assignment sheets."
+    }
+  ]
+}

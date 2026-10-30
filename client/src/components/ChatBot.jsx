@@ -1,14 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, AlertCircle, Sparkles, RefreshCw, UserPlus } from 'lucide-react';
 import { sendChatMessage } from '../services/api';
-import './ChatBot.css';
 
-export const ChatBot = ({ onOpenLeadForm }) => {
+export const ChatBot = ({ onOpenLeadForm, businessProfile }) => {
+  const businessName = businessProfile?.name || 'ABC Academy';
   const [messages, setMessages] = useState([
     {
       id: 'welcome',
       sender: 'ai',
-      text: "Hello! Welcome to ABC Academy. I'm your AI assistant. How can I help you today with our technical courses, fees, or schedules?",
+      text: `Hello! Welcome to ${businessName}. I'm your AI Admissions Counselor. You can ask me about our 2-Year NEET & JEE programs, 1-Year Droppers batches, class timings, sample fee structures, or the ATSE scholarship test. How can I help you today?`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -17,16 +16,20 @@ export const ChatBot = ({ onOpenLeadForm }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const chatEndRef = useRef(null);
-  const inputRef = useRef(null);
+  const sessionIdRef = useRef(
+    typeof crypto !== 'undefined' && crypto.randomUUID
+      ? crypto.randomUUID()
+      : 'session_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9)
+  );
 
   const samplePrompts = [
     "What courses do you offer?",
-    "What are the course fees?",
-    "Where are you located?",
-    "Do you offer placement support?"
+    "What are the NEET and JEE fees?",
+    "What are the batch timings?",
+    "How does the ATSE scholarship work?",
+    "Can someone call me for counseling?"
   ];
 
-  // Auto-scroll to bottom of chat
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -53,22 +56,22 @@ export const ChatBot = ({ onOpenLeadForm }) => {
     setIsLoading(true);
 
     try {
-      const data = await sendChatMessage(userText);
+      const data = await sendChatMessage(userText, sessionIdRef.current);
       const aiMsgObj = {
         id: (Date.now() + 1).toString(),
         sender: 'ai',
         text: data.reply || "I'm sorry, I couldn't process that response.",
-        isFallback: data.isFallback,
+        provider: data.provider,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, aiMsgObj]);
     } catch (err) {
       console.error('Chat error:', err);
-      setErrorMessage(err.message || 'Failed to receive AI response. Please check backend status.');
+      setErrorMessage(err.message || 'Failed to receive AI response. Check backend connection.');
       const errorMsgObj = {
         id: (Date.now() + 1).toString(),
         sender: 'ai',
-        text: "I'm having trouble connecting to the server. Please check your network or leave your contact info below so our team can help you.",
+        text: "I'm currently unable to reach the AI engine. Please click 'Enquire / Call Back' above to leave your contact details.",
         isError: true,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
@@ -86,55 +89,89 @@ export const ChatBot = ({ onOpenLeadForm }) => {
   };
 
   return (
-    <div className="chatbot-container card">
+    <div className="w-full h-full bg-white rounded-2xl border border-gray-200 shadow-xl flex flex-col overflow-hidden relative">
+      
       {/* Header */}
-      <div className="chatbot-header">
-        <div className="chatbot-header-info">
-          <div className="chatbot-avatar">
-            <Bot size={20} />
+      <div className="flex items-center justify-between px-4 py-3 bg-gray-900 text-white shrink-0">
+        <div className="flex items-center gap-2.5">
+          <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md">
+            <span className="material-symbols-outlined text-[20px]">psychology</span>
           </div>
           <div>
-            <h3 className="chatbot-title">ABC Academy AI Support</h3>
-            <span className="chatbot-status">
-              <span className="status-dot"></span> Online • Responds instantly
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-sm text-white leading-tight">{businessName} AI</span>
+              <span className="px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold border border-amber-500/40">
+                DEMO MODE
+              </span>
+              <span className="px-1.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-semibold border border-emerald-800">
+                ● Live AI
+              </span>
+            </div>
+            <span className="text-[11px] text-gray-400 font-normal">NEET & JEE Admissions Counselor</span>
           </div>
         </div>
 
-        <button className="btn-lead-trigger" onClick={onOpenLeadForm} title="Leave Contact Details">
-          <UserPlus size={16} />
-          <span>Request Callback</span>
+        <button
+          onClick={onOpenLeadForm}
+          className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-blue-700 hover:bg-blue-600 text-white flex items-center gap-1 transition-colors shadow-sm"
+          title="Directly request a callback"
+        >
+          <span className="material-symbols-outlined text-[14px]">call</span>
+          <span>Callback</span>
         </button>
       </div>
 
-      {/* Messages Feed */}
-      <div className="chatbot-messages">
+      {/* Messages Stream */}
+      <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3 bg-blue-50/20">
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`message-row ${msg.sender === 'user' ? 'user-row' : 'ai-row'} animate-fade-in`}
+            className={`flex gap-2 max-w-[90%] ${
+              msg.sender === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'
+            } animate-fade-in`}
           >
-            <div className={`message-avatar ${msg.sender}`}>
-              {msg.sender === 'user' ? <User size={16} /> : <Bot size={16} />}
+            <div
+              className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-bold ${
+                msg.sender === 'user'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-blue-100 text-blue-700'
+              }`}
+            >
+              {msg.sender === 'user' ? 'You' : 'AI'}
             </div>
-            <div className="message-content">
-              <div className={`message-bubble ${msg.sender} ${msg.isError ? 'message-error' : ''}`}>
-                <p className="message-text">{msg.text}</p>
+
+            <div className="flex flex-col">
+              <div
+                className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm leading-relaxed whitespace-pre-wrap break-words shadow-sm ${
+                  msg.sender === 'user'
+                    ? 'bg-blue-700 text-white rounded-tr-none font-medium'
+                    : msg.isError
+                    ? 'bg-red-50 border border-red-200 text-red-700 rounded-tl-none'
+                    : 'bg-white border border-gray-200 text-gray-800 rounded-tl-none'
+                }`}
+              >
+                {msg.text}
               </div>
-              <div className="message-time">{msg.timestamp}</div>
+              <span
+                className={`text-[10px] text-gray-400 mt-1 ${
+                  msg.sender === 'user' ? 'self-end' : 'self-start'
+                }`}
+              >
+                {msg.timestamp}
+              </span>
             </div>
           </div>
         ))}
 
         {isLoading && (
-          <div className="message-row ai-row animate-fade-in">
-            <div className="message-avatar ai">
-              <Bot size={16} />
+          <div className="flex gap-2 mr-auto animate-fade-in">
+            <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 text-[11px] font-bold">
+              AI
             </div>
-            <div className="message-bubble ai loading-bubble">
-              <span className="typing-dot"></span>
-              <span className="typing-dot"></span>
-              <span className="typing-dot"></span>
+            <div className="bg-white border border-gray-200 rounded-xl rounded-tl-none px-4 py-3 flex items-center gap-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce"></span>
+              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+              <span className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
             </div>
           </div>
         )}
@@ -142,15 +179,18 @@ export const ChatBot = ({ onOpenLeadForm }) => {
         <div ref={chatEndRef} />
       </div>
 
-      {/* Quick Suggestions */}
+      {/* Prompt Pills */}
       {messages.length < 5 && (
-        <div className="chatbot-suggestions">
-          <span className="suggestion-label"><Sparkles size={12} /> Suggested Questions:</span>
-          <div className="suggestion-pills">
+        <div className="px-4 py-2 bg-white border-t border-gray-200 flex flex-col gap-1.5 shrink-0">
+          <span className="text-[11px] font-semibold text-gray-500 flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px] text-blue-600">auto_awesome</span>
+            Try Asking:
+          </span>
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
             {samplePrompts.map((prompt, idx) => (
               <button
                 key={idx}
-                className="suggestion-pill"
+                className="whitespace-nowrap text-xs bg-gray-100 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 text-gray-700 border border-gray-200 px-3 py-1 rounded-full transition-colors"
                 onClick={() => handleSendMessage(prompt)}
                 disabled={isLoading}
               >
@@ -161,35 +201,39 @@ export const ChatBot = ({ onOpenLeadForm }) => {
         </div>
       )}
 
-      {/* Error Alert if any */}
+      {/* Error banner */}
       {errorMessage && (
-        <div className="chatbot-error-banner">
-          <AlertCircle size={16} />
+        <div className="px-4 py-2 bg-red-50 border-t border-red-200 text-red-600 text-xs flex items-center gap-2">
+          <span className="material-symbols-outlined text-[16px]">error</span>
           <span>{errorMessage}</span>
         </div>
       )}
 
-      {/* Input Area */}
-      <div className="chatbot-input-area">
-        <textarea
-          ref={inputRef}
-          className="chatbot-input"
-          placeholder="Ask a question about courses, fees, or location..."
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          onKeyDown={handleKeyDown}
-          rows={1}
-          disabled={isLoading}
-        />
-        <button
-          className="chatbot-send-btn"
-          onClick={() => handleSendMessage()}
-          disabled={isLoading || inputMessage.trim() === ''}
-          title="Send message"
-        >
-          <Send size={18} />
-        </button>
+      {/* Input Bar */}
+      <div className="p-3 bg-white border-t border-gray-200 flex flex-col gap-1 shrink-0">
+        <div className="flex items-center gap-2 bg-gray-100 rounded-xl p-1.5 border border-gray-200">
+          <input
+            className="flex-1 bg-transparent px-3 py-1.5 text-xs sm:text-sm text-gray-900 focus:outline-none placeholder:text-gray-400"
+            placeholder="Ask about NEET/JEE batches, fees, scholarships, or type 'call me'..."
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+            disabled={isLoading}
+          />
+          <button
+            className="w-8 h-8 rounded-lg bg-blue-700 hover:bg-blue-800 disabled:bg-gray-300 text-white flex items-center justify-center transition-all shadow-sm shrink-0"
+            onClick={() => handleSendMessage()}
+            disabled={isLoading || inputMessage.trim() === ''}
+          >
+            <span className="material-symbols-outlined text-[16px]">send</span>
+          </button>
+        </div>
+        <div className="flex items-center justify-between px-1 text-[10px] text-gray-400 font-medium">
+          <span>Multi-turn memory active • Qwen2.5 Local AI</span>
+          <span className="text-amber-600 font-semibold">● Demo Mode</span>
+        </div>
       </div>
+
     </div>
   );
 };

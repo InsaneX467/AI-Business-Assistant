@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+models/*
+!models/.gitkeep
+training/checkpoints/
+.cache/
+.env
+*.safetensors
+*.bin
+*.pt

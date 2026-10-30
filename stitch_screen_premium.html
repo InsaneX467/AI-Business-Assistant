@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>ABC Academy — Technical Training &amp; AI Support</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-container-high":"#dce9ff","outline-variant":"#c4c5d7","tertiary-fixed-dim":"#4edea3","on-secondary-container":"#5c647a","tertiary-fixed":"#6ffbbe","surface-dim":"#cbdbf5","tertiary-container":"#006a48","primary-fixed-dim":"#b7c4ff","surface-container-highest":"#d3e4fe","on-tertiary-fixed-variant":"#005236","surface-bright":"#f8f9ff","surface-container-lowest":"#ffffff","on-surface-variant":"#434655","on-background":"#0b1c30","on-primary":"#ffffff","on-tertiary":"#ffffff","on-secondary-fixed":"#131b2e","secondary":"#565e74","secondary-container":"#dae2fd","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-secondary":"#ffffff","inverse-primary":"#b7c4ff","background":"#f8f9ff","secondary-fixed-dim":"#bec6e0","inverse-on-surface":"#eaf1ff","primary-container":"#1d4ed8","error-container":"#ffdad6","surface-container-low":"#eff4ff","on-tertiary-container":"#60eeb1","on-tertiary-fixed":"#002113","on-primary-container":"#cad3ff","tertiary":"#004f35","on-primary-fixed-variant":"#0039b5","on-primary-fixed":"#001551","surface-container":"#e5eeff","on-error":"#ffffff","on-error-container":"#93000a","on-secondary-fixed-variant":"#3f465c","primary":"#0037b0","secondary-fixed":"#dae2fd","primary-fixed":"#dce1ff","inverse-surface":"#213145","surface-tint":"#2151da","error":"#ba1a1a","outline":"#747686","on-surface":"#0b1c30"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-xl":"1.75rem","space-md":"0.75rem","gutter-mobile":"0.75rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1.25rem","space-lg":"1.25rem","margin-mobile":"1rem"},"fontFamily":{"label-sm":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-xl":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-[1360px] mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[22px]">school</span></div><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">ABC Academy</span><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm tracking-wide">AI POWERED</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Technical Training &amp; AI Support</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-lg bg-surface-container-low" data-active-classes="bg-surface-container text-primary font-label-md"><a aria-current="page" class="px-space-md py-1.5 rounded-md transition-colors bg-surface-container text-primary font-label-md" data-path="ai-assistant" href="#">AI Assistant</a><a class="px-space-md py-1.5 rounded-md text-on-surface-variant font-label-md text-label-md transition-colors hover:text-on-surface hover:bg-surface-container-high" data-path="courses" href="#">Courses</a><a class="px-space-md py-1.5 rounded-md text-on-surface-variant font-label-md text-label-md transition-colors hover:text-on-surface hover:bg-surface-container-high" data-path="admin-portal" href="#">Admin</a></nav><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-1.5 text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-primary">call</span><span class="font-label-md text-label-md text-on-surface">+91 3712 295000</span></div><button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all hover:bg-primary flex items-center gap-1.5 shadow-sm"><span class="material-symbols-outlined text-[16px]">support_agent</span><span>Enquire / Call Back</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Backdrop Accent -->
+<div class="relative w-full overflow-hidden bg-background">
+<!-- Atmospheric glows -->
+<div class="absolute -top-32 left-1/4 w-[520px] h-[520px] rounded-full bg-primary-fixed-dim/25 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-96 right-10 w-[420px] h-[420px] rounded-full bg-tertiary-fixed/20 blur-[130px] pointer-events-none"></div>
+<div class="max-w-[1360px] mx-auto px-margin">
+<!-- =================================================================== -->
+<!-- 1. HERO SECTION -->
+<!-- =================================================================== -->
+<section class="relative pt-10 pb-12 lg:pt-14 lg:pb-16 grid grid-cols-12 gap-gutter items-center">
+<!-- LEFT COLUMN: Value Proposition -->
+<div class="col-span-12 lg:col-span-7 flex flex-col items-start pr-0 lg:pr-6">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>AI-POWERED TECHNICAL LEARNING</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-xl text-headline-xl lg:text-[46px] lg:leading-[54px] text-on-surface font-bold tracking-tight mb-space-md">
+            Build skills that move your <span class="bg-gradient-to-r from-primary via-primary-container to-surface-tint bg-clip-text text-transparent">career forward.</span>
+</h1>
+<!-- Supporting Text -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[620px] mb-space-lg leading-relaxed">
+            Explore industry-focused engineering programs, interrogate our conversational AI advisor for fee breakdowns and syllabus paths, or connect directly with our admissions desk in Tezpur.
+          </p>
+<!-- Interactive Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-md mb-space-lg">
+<button class="px-5 py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-space-xs shadow-md hover:bg-primary transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0" onclick="scrollToConsole()">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+<span>Ask AI Assistant</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</button>
+<a class="px-5 py-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center gap-space-xs shadow-sm hover:bg-surface-container-low transition-all duration-200 hover:-translate-y-0.5" href="#courses">
+<span>Explore Programs</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<button class="px-4 py-3 rounded-lg text-primary font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container transition-colors" onclick="openModal()">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>Direct Callback</span>
+</button>
+</div>
+<!-- Trust Checklist -->
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 pt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="text-on-surface-variant font-medium">Practical Curriculum</span>
+</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="text-on-surface-variant font-medium">Online + Classroom</span>
+</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="text-on-surface-variant font-medium">AI-Guided Mentorship</span>
+</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[15px]">location_on</span>
+<span class="text-on-surface-variant font-medium">Tezpur, Assam</span>
+</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Realistic Live AI Assistant Preview Card -->
+<div class="col-span-12 lg:col-span-5 relative mt-6 lg:mt-0">
+<!-- Latency chip -->
+<div class="absolute -top-3 right-6 z-20 px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-md flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="text-tertiary font-semibold">Qwen2.5</span>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant">&lt; 380ms response</span>
+</div>
+<!-- Chat Window Box -->
+<div class="rounded-xl bg-surface-container-lowest shadow-xl p-space-md flex flex-col gap-space-md transition-all">
+<!-- Header -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low -mx-space-md -mt-space-md p-space-md rounded-t-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">ABC Academy AI</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px]">● Online</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intelligent Admissions Concierge</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-md bg-surface-container text-primary font-label-sm text-label-sm">
+                v2.5 Local
+              </div>
+</div>
+<!-- Messages Stream -->
+<div class="flex flex-col gap-space-sm pt-space-xs text-body-sm">
+<!-- AI Bubble 1 -->
+<div class="flex items-start gap-space-xs max-w-[92%]">
+<div class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0 mt-0.5 font-label-sm text-[11px]">
+                  AI
+                </div>
+<div class="bg-surface-container-low text-on-surface rounded-xl rounded-tl-xs p-space-sm shadow-xs">
+                  Hi! I'm your AI learning advisor for ABC Academy Tezpur. What course are you exploring today?
+                </div>
+</div>
+<!-- User Bubble 2 -->
+<div class="flex items-start justify-end gap-space-xs ml-auto max-w-[85%]">
+<div class="bg-primary-container text-on-primary rounded-xl rounded-tr-xs p-space-sm shadow-xs">
+                  I'm interested in the AI &amp; ML certification and upcoming batch fees.
+                </div>
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 mt-0.5 font-label-sm text-[11px]">
+                  You
+                </div>
+</div>
+<!-- AI Bubble 3 -->
+<div class="flex items-start gap-space-xs max-w-[95%]">
+<div class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0 mt-0.5 font-label-sm text-[11px]">
+                  AI
+                </div>
+<div class="bg-surface-container-low text-on-surface rounded-xl rounded-tl-xs p-space-sm shadow-xs space-y-1.5">
+<p>Great choice! Our <strong>AI &amp; Machine Learning</strong> certification covers Deep Learning, NLP, Transformers, and LLMs.</p>
+<div class="p-2 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span>Program Fee: <strong>₹35,000</strong></span>
+<span class="text-tertiary font-semibold">2 Free Demo Classes</span>
+</div>
+<p class="text-on-surface-variant text-[12px]">Weekday &amp; Weekend batches open in Tezpur + live interactive streaming.</p>
+</div>
+</div>
+</div>
+<!-- Mini Input Bar -->
+<div class="pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-low rounded-lg p-1.5 shadow-inner">
+<input class="flex-1 bg-transparent px-space-sm py-1.5 font-body-sm text-body-sm text-on-surface focus:outline-none placeholder:text-outline" id="hero-quick-input" onkeydown="if(event.key==='Enter') executeHeroQuery()" placeholder="Ask about curriculum, demo classes, timings..." type="text"/>
+<button class="w-8 h-8 rounded-md bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center transition-colors shadow-sm" onclick="executeHeroQuery()">
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2 px-1 text-on-surface-variant font-label-sm text-[10px]">
+<span>Try: "Do you offer placement support?"</span>
+<span class="text-tertiary">Real-time sync</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 2. BUSINESS CREDENTIALS STRIP -->
+<!-- =================================================================== -->
+<section class="w-full mb-12">
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-4 lg:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Item 1: Location -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">CAMPUS LOCATION</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Tezpur, Assam (Pin: 784001)</span>
+</div>
+</div>
+<!-- Item 2: Timings -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">OPERATING HOURS</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Mon – Sat: 9:00 AM – 6:00 PM</span>
+</div>
+</div>
+<!-- Item 3: Phone -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ADMISSIONS DESK</span>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors truncate" href="tel:+919876543210">+91 98765 43210</a>
+</div>
+</div>
+<!-- Item 4: Email -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DIRECT ENQUIRY</span>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors truncate" href="mailto:contact@abcacademy.demo">contact@abcacademy.demo</a>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 3. WHICH PATH FITS YOU? (EDUCATIONAL DISCOVERY) -->
+<!-- =================================================================== -->
+<section class="mb-14">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Discovery Matrix</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Find Your Direction</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Three industry-tailored pathways engineered for high-growth tech careers.</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 md:mt-0">All pathways include 2 Free Demo Classes</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Pathway 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">01 / BUILD</span>
+<span class="material-symbols-outlined text-primary text-[22px]">layers</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Full Stack Development</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Modern web architecture, responsive client apps, server APIs, and production cloud databases.</p>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary group-hover:translate-x-1 transition-transform" href="#courses">
+<span>Explore Build Track</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Pathway 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">02 / ANALYZE</span>
+<span class="material-symbols-outlined text-secondary text-[22px]">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Data Science &amp; BI</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Data modeling, algorithmic statistical analysis, enterprise dashboarding, and predictive forecasting pipelines.</p>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary group-hover:translate-x-1 transition-transform" href="#courses">
+<span>Explore Analyze Track</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Pathway 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">03 / INNOVATE</span>
+<span class="material-symbols-outlined text-tertiary text-[22px]">neurology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">AI &amp; Machine Learning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Deep neural nets, Computer Vision, Transformers, LLM fine-tuning, and modern agentic architectures.</p>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary group-hover:translate-x-1 transition-transform" href="#courses">
+<span>Explore Innovate Track</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 4. FEATURED PROGRAMS (HIGH-PERSONALITY CARDS) -->
+<!-- =================================================================== -->
+<section class="mb-16" id="courses">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg">
+<div>
+<div class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold mb-1">
+<span class="material-symbols-outlined text-[16px]">workspace_premium</span>
+<span>CAREER PATHWAYS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Featured Programs &amp; Certifications</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Industry-focused technical curricula built with direct hands-on project experience in Tezpur.</p>
+</div>
+<div class="flex items-center gap-2 mt-4 md:mt-0">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Hybrid Flexible Batches</span>
+</div>
+</div>
+<!-- 3 Program Cards Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- CARD 1: Full Stack Development -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-space-lg relative group">
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">terminal</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Web Engineering</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Full Stack Development</h3>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">
+                Build end-to-end web applications with real-world architecture, secure authentication, and industry-standard CI/CD deployment pipelines.
+              </p>
+<!-- Tech Stack Tags -->
+<div class="mb-space-md">
+<span class="font-label-sm text-[11px] text-on-surface-variant block mb-1.5 uppercase font-medium">Core Stack:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">React</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Express</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">MongoDB</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Git</span>
+</div>
+</div>
+<!-- Meta Strip -->
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm mb-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>6 Months Duration</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">laptop_mac</span>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+</div>
+<!-- Bottom Price & CTA -->
+<div class="pt-space-sm bg-surface-container-lowest">
+<div class="flex items-baseline justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through mr-1">₹32,000</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">₹25,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Program Fee</span>
+</div>
+<div class="text-right">
+<span class="px-2 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold">2 Free Demo Classes</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="w-full py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm transition-colors" onclick="openModalWithCourse('Full Stack Development')">
+<span>Enroll Demo</span>
+</button>
+<button class="w-full py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" onclick="askAIAboutCourse('Full Stack Development (₹25,000, 6 Months)')">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Syllabus AI</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: Data Science -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-space-lg relative group">
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">query_stats</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Analytics &amp; Insights</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Data Science</h3>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">
+                Master data analysis, statistical modeling, relational databases, business intelligence dashboards, and fundamental predictive pipelines.
+              </p>
+<!-- Tech Stack Tags -->
+<div class="mb-space-md">
+<span class="font-label-sm text-[11px] text-on-surface-variant block mb-1.5 uppercase font-medium">Core Stack:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Python</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">SQL</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Pandas</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Scikit-Learn</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Tableau</span>
+</div>
+</div>
+<!-- Meta Strip -->
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm mb-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>6 Months Duration</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">laptop_mac</span>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+</div>
+<!-- Bottom Price & CTA -->
+<div class="pt-space-sm bg-surface-container-lowest">
+<div class="flex items-baseline justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through mr-1">₹38,000</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">₹30,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Program Fee</span>
+</div>
+<div class="text-right">
+<span class="px-2 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold">2 Free Demo Classes</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="w-full py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm transition-colors" onclick="openModalWithCourse('Data Science')">
+<span>Enroll Demo</span>
+</button>
+<button class="w-full py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" onclick="askAIAboutCourse('Data Science (₹30,000, 6 Months)')">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Syllabus AI</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 3: AI & Machine Learning (Flagship) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-space-lg relative group">
+<!-- Career Focused Pill -->
+<div class="absolute -top-3 right-6 px-3 py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-[11px] font-bold shadow-sm">
+              Flagship Specialization
+            </div>
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container text-on-tertiary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wider">Specialized AI</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">AI &amp; Machine Learning</h3>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md leading-relaxed">
+                Advanced engineering covering Deep Learning, NLP, Computer Vision, Generative AI, prompt workflows, and practical LLM applications.
+              </p>
+<!-- Tech Stack Tags -->
+<div class="mb-space-md">
+<span class="font-label-sm text-[11px] text-on-surface-variant block mb-1.5 uppercase font-medium">Core Stack:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">PyTorch</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Transformers</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">GenAI</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">CV &amp; NLP</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[11px]">Ollama</span>
+</div>
+</div>
+<!-- Meta Strip -->
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm mb-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>4 Months Fast-track</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">laptop_mac</span>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+</div>
+<!-- Bottom Price & CTA -->
+<div class="pt-space-sm bg-surface-container-lowest">
+<div class="flex items-baseline justify-between mb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through mr-1">₹45,000</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">₹35,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Program Fee</span>
+</div>
+<div class="text-right">
+<span class="px-2 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold">2 Free Demo Classes</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="w-full py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm transition-colors" onclick="openModalWithCourse('AI &amp; Machine Learning')">
+<span>Enroll Demo</span>
+</button>
+<button class="w-full py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" onclick="askAIAboutCourse('AI &amp; Machine Learning (₹35,000, 4 Months)')">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Syllabus AI</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 5. WHY STUDENTS CHOOSE US (FEATURE STRIP) -->
+<!-- =================================================================== -->
+<section class="mb-16">
+<div class="text-center max-w-[700px] mx-auto mb-space-lg">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">The Academy Advantage</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Why Technical Aspirants Choose ABC Academy</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">A rigorous, career-focused learning standard paired with modern local infrastructure.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Tile 01 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<span class="font-headline-md text-headline-md font-bold text-primary block mb-2">01</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Practical Learning</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-world git repositories, live deployments, and actual production bug fixes instead of theoretical slideshows.</p>
+</div>
+<!-- Tile 02 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<span class="font-headline-md text-headline-md font-bold text-primary block mb-2">02</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Industry Curricula</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuously updated module roadmaps that mirror current engineering team stacks, tooling, and LLM practices.</p>
+</div>
+<!-- Tile 03 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<span class="font-headline-md text-headline-md font-bold text-primary block mb-2">03</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">1-on-1 Mentorship</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct line to senior practitioner code reviews, weekly architectural teardowns, and interview mock drills.</p>
+</div>
+<!-- Tile 04 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<span class="font-headline-md text-headline-md font-bold text-primary block mb-2">04</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Online + Tezpur Labs</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Flexible hybrid attendance with full in-person access to dedicated high-speed workstation labs in Tezpur, Assam.</p>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 6. DEDICATED AI ASSISTANT CONSOLE (CORE TECHNOLOGY SHOWCASE) -->
+<!-- =================================================================== -->
+<section class="mb-16 rounded-xl bg-surface-container p-6 lg:p-8 shadow-sm" id="ai-console">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- LEFT: Context & Quick Interactive Prompts -->
+<div class="lg:col-span-5 flex flex-col items-start pr-0 lg:pr-4">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm mb-space-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">headset_mic</span>
+<span>24/7 ADMISSIONS ADVISOR</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-bold">
+              Not sure which program is right for you?
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md leading-relaxed">
+              Ask our local Qwen AI assistant anything about course roadmaps, tuition discounts, batch timings, or job opportunities. If you prefer human guidance, our Tezpur desk will call you directly.
+            </p>
+<!-- Quick Action Trigger Chips -->
+<div class="w-full flex flex-col gap-2 mb-space-md">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-medium">Quick Queries:</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-xs transition-colors flex items-center gap-1.5" onclick="sendQuickPrompt('What are the differences between Full Stack and Data Science?')">
+<span>🎯 Course Differences</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-xs transition-colors flex items-center gap-1.5" onclick="sendQuickPrompt('How do the 2 free demo classes work?')">
+<span>✨ Demo Class Policy</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-xs transition-colors flex items-center gap-1.5" onclick="sendQuickPrompt('What are the batch timings for weekday and weekend?')">
+<span>🕒 Batch Timings</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm shadow-xs transition-colors flex items-center gap-1.5" onclick="openModal()">
+<span>📞 Request Human Callback</span>
+</button>
+</div>
+</div>
+<!-- Backend Status Tag -->
+<div class="p-3 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span>Local Qwen2.5 Engine • MongoDB Real-time Lead Sync Active</span>
+</div>
+</div>
+<!-- RIGHT: High-Utility Interactive Chatbot Window -->
+<div class="lg:col-span-7">
+<div class="w-full rounded-xl bg-surface-container-lowest shadow-xl flex flex-col overflow-hidden">
+<!-- Console Topbar -->
+<div class="p-space-md bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-md bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface text-[15px] block leading-tight">ABC Academy AI Concierge</span>
+<span class="font-label-sm text-[11px] text-tertiary font-semibold">● Online • Latency: ~380ms</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded-md bg-surface-container-lowest text-primary hover:bg-surface-container text-label-sm font-label-sm transition-colors shadow-xs" onclick="openModal()">
+                  Request Human Call
+                </button>
+</div>
+<!-- Chat Message Scroll Container (Simulated dynamic thread) -->
+<div class="p-space-md h-[320px] overflow-y-auto flex flex-col gap-space-md bg-surface-container-lowest" id="console-chat-stream">
+<!-- Initial Assistant Greeting -->
+<div class="flex items-start gap-space-xs max-w-[88%]">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 text-label-sm text-[11px]">
+                    AI
+                  </div>
+<div class="p-3 rounded-xl rounded-tl-xs bg-surface-container-low text-on-surface font-body-sm text-body-sm shadow-xs">
+                    Welcome to ABC Academy Tezpur. I can help you compare syllabi, schedule your <strong>2 Free Demo Classes</strong>, or calculate monthly installments. What would you like to know?
+                  </div>
+</div>
+<!-- Suggested Starter Chips in Thread -->
+<div class="flex flex-wrap gap-1.5 pl-9">
+<button class="text-[12px] px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="sendQuickPrompt('What courses do you offer and what are the fees?')">
+                    Courses &amp; Fees breakdown
+                  </button>
+<button class="text-[12px] px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="sendQuickPrompt('Can I attend classes online from outside Tezpur?')">
+                    Online vs Offline model
+                  </button>
+<button class="text-[12px] px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="sendQuickPrompt('Tell me about the Tezpur campus facilities')">
+                    Campus Facilities
+                  </button>
+</div>
+</div>
+<!-- Interactive Input Bar -->
+<div class="p-space-md bg-surface-container-low">
+<form class="flex items-center gap-space-xs" id="console-form" onsubmit="handleConsoleSubmit(event)">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="openModal()" title="Direct admissions callback" type="button">
+<span class="material-symbols-outlined text-[18px]">add_call</span>
+</button>
+<input class="flex-1 bg-surface-container-lowest px-space-md py-2.5 rounded-lg text-body-sm font-body-sm text-on-surface focus:outline-none placeholder:text-outline shadow-xs" id="console-user-input" placeholder="Ask anything about ABC Academy courses, demo classes, fees..." type="text"/>
+<button class="px-4 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 shadow-sm transition-colors" type="submit">
+<span>Send</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</form>
+<div class="flex items-center justify-between mt-2 text-on-surface-variant font-label-sm text-[11px] px-1">
+<span>Questions are analyzed instantly with conversational Qwen model</span>
+<span>Free demo session included</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 7. INTERACTIVE FAQ ACCORDION -->
+<!-- =================================================================== -->
+<section class="mb-16 max-w-[960px] mx-auto w-full">
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Common Questions</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Frequently Asked Questions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Transparent answers regarding admissions, campus access, and certifications.</p>
+</div>
+<div class="flex flex-col gap-3" id="faq-accordion-container">
+<!-- FAQ 1 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-4 text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" onclick="toggleFaq(1)">
+<span>Do you offer demo classes before enrollment?</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="faq-icon-1">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 font-body-md text-body-md text-on-surface-variant" id="faq-answer-1">
+              Yes, ABC Academy offers <strong>2 free demo classes</strong> for all our technical programs (Full Stack, Data Science, and AI &amp; Machine Learning). You can interact with faculty, evaluate the project structure, and experience the learning platform prior to paying tuition.
+            </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-4 text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" onclick="toggleFaq(2)">
+<span>Where is ABC Academy physically located?</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="faq-icon-2">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 font-body-md text-body-md text-on-surface-variant" id="faq-answer-2">
+              Our campus is located in <strong>Tezpur, Assam, India (PIN: 784001)</strong>. We have fully equipped computer labs with high-speed internet, collaborative workspaces, and projection facilities for offline students.
+            </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-4 text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" onclick="toggleFaq(3)">
+<span>What are the class timings and batch options?</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="faq-icon-3">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 font-body-md text-body-md text-on-surface-variant" id="faq-answer-3">
+              Academy operating hours are Monday through Saturday, 9:00 AM to 6:00 PM. We offer flexible options including morning batches, evening batches for working professionals, and dedicated weekend-only cohorts.
+            </div>
+</div>
+<!-- FAQ 4 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-4 text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" onclick="toggleFaq(4)">
+<span>Can I attend classes online from outside Tezpur?</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="faq-icon-4">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 font-body-md text-body-md text-on-surface-variant" id="faq-answer-4">
+              Absolutely. All three tracks (Full Stack ₹25,000, Data Science ₹30,000, AI &amp; ML ₹35,000) are fully dual-streamed. Online students participate in live lectures, code reviews, and project submissions with the exact same accreditation.
+            </div>
+</div>
+<!-- FAQ 5 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<button class="w-full p-4 text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" onclick="toggleFaq(5)">
+<span>How can I speak directly with an admissions advisor?</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="faq-icon-5">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 font-body-md text-body-md text-on-surface-variant" id="faq-answer-5">
+              You can click the <strong>Enquire / Call Back</strong> button at the top or bottom of this page, call +91 98765 43210 during working hours, or ask our integrated AI Assistant to register your callback request immediately.
+            </div>
+</div>
+</div>
+</section>
+<!-- =================================================================== -->
+<!-- 8. CLOSING ENQUIRY BANNER -->
+<!-- =================================================================== -->
+<section class="mb-16">
+<div class="rounded-xl bg-gradient-to-r from-primary to-inverse-surface p-8 lg:p-12 text-on-primary shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="max-w-[680px]">
+<span class="px-3 py-1 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-label-sm text-label-sm font-semibold mb-3 inline-block">
+              GET STARTED IN TEZPUR OR ONLINE
+            </span>
+<h2 class="font-headline-xl text-headline-xl text-on-primary font-bold">Still have questions about a program?</h2>
+<p class="font-body-lg text-body-lg text-inverse-on-surface/90 mt-2">
+              Speak directly with our academic team in Tezpur or consult our AI assistant to design the learning track tailored to your current background.
+            </p>
+<div class="mt-4 flex items-center gap-2 font-label-sm text-label-sm text-inverse-on-surface/80">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">verified</span>
+<span>Zero obligation • 2 Free demo sessions included with every inquiry</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-sm shrink-0 w-full md:w-auto">
+<button class="px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-md hover:bg-surface-container-low transition-all" onclick="openModal()">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Request a Callback</span>
+</button>
+<button class="px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary transition-all" onclick="scrollToConsole()">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+<span>Ask AI Assistant</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- 9. MODAL: ADMISSIONS & CALLBACK LEAD CAPTURE -->
+<!-- =================================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-on-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="lead-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl max-w-[500px] w-full p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-md hover:bg-surface-container" onclick="closeModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<!-- Modal Header -->
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Request Admissions Callback</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ABC Academy Tezpur Campus • Free Demo Booking</p>
+</div>
+</div>
+<!-- Form -->
+<form class="space-y-3.5" id="lead-capture-form" onsubmit="handleLeadSubmit(event)">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Full Name *</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs" id="modal-name" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Phone Number *</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs" id="modal-phone" placeholder="+91 98765 00000" required="" type="tel"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Email Address</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs" id="modal-email" placeholder="rahul@example.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Program of Interest *</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs" id="modal-course">
+<option value="Full Stack Development">Full Stack Development — ₹25,000 (6 Months)</option>
+<option value="Data Science">Data Science &amp; BI — ₹30,000 (6 Months)</option>
+<option value="AI &amp; Machine Learning">AI &amp; Machine Learning — ₹35,000 (4 Months)</option>
+<option value="General Guidance">I need AI/Career Guidance first</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Preferred Mode</label>
+<div class="grid grid-cols-2 gap-2 text-label-sm font-label-sm">
+<label class="flex items-center gap-2 p-2 rounded bg-surface-container-low cursor-pointer">
+<input checked="" class="text-primary" name="mode" type="radio" value="Classroom"/>
+<span>Tezpur Classroom</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded bg-surface-container-low cursor-pointer">
+<input class="text-primary" name="mode" type="radio" value="Online"/>
+<span>Online Streaming</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-medium mb-1">Note or Question (Optional)</label>
+<textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs" id="modal-message" placeholder="Tell us about your timing preference or coding experience..." rows="2"></textarea>
+</div>
+<button class="w-full py-3 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-md transition-colors mt-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Submit Request • 2 Free Demos</span>
+</button>
+<p class="text-center font-label-sm text-[11px] text-on-surface-variant">
+          Admissions team responds within 2 hours during active working hours.
+        </p>
+</form>
+<!-- Confirmation view within modal (initially hidden) -->
+<div class="hidden text-center py-6" id="modal-success-state">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mx-auto mb-3">
+<span class="material-symbols-outlined text-[30px]">check_circle</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold">Callback Confirmed!</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 max-w-[360px] mx-auto">
+          Thank you! Our academic advisor in Tezpur has received your enquiry. You will receive a phone confirmation for your 2 free demo classes.
+        </p>
+<button class="mt-5 px-5 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md" onclick="closeModal()">
+          Back to Homepage
+        </button>
+</div>
+</div>
+</div>
+<!-- Micro-Interactions & Logic Script -->
+<script>
+    // Smooth scroll to AI console
+    function scrollToConsole() {
+      const consoleEl = document.getElementById('ai-console');
+      if (consoleEl) {
+        consoleEl.scrollIntoView({ behavior: 'smooth' });
+        const input = document.getElementById('console-user-input');
+        if (input) setTimeout(() => input.focus(), 600);
+      }
+    }
+
+    // Modal controls
+    function openModal() {
+      const modal = document.getElementById('lead-modal');
+      const form = document.getElementById('lead-capture-form');
+      const success = document.getElementById('modal-success-state');
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (form) form.classList.remove('hidden');
+        if (success) success.classList.add('hidden');
+      }
+    }
+
+    function openModalWithCourse(courseName) {
+      openModal();
+      const select = document.getElementById('modal-course');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(courseName)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('lead-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('lead-capture-form');
+      const success = document.getElementById('modal-success-state');
+      if (form && success) {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }
+    }
+
+    // FAQ Accordion
+    function toggleFaq(num) {
+      const ans = document.getElementById(`faq-answer-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (!ans || !icon) return;
+
+      const isHidden = ans.classList.contains('hidden');
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        icon.innerText = 'expand_less';
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = 'expand_more';
+      }
+    }
+
+    // AI Console Simulation
+    function appendChatMessage(sender, text, isAi = false) {
+      const stream = document.getElementById('console-chat-stream');
+      if (!stream) return;
+
+      const row = document.createElement('div');
+      if (isAi) {
+        row.className = 'flex items-start gap-space-xs max-w-[90%] animate-in fade-in duration-200';
+        row.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 text-label-sm text-[11px]">
+            AI
+          </div>
+          <div class="p-3 rounded-xl rounded-tl-xs bg-surface-container-low text-on-surface font-body-sm text-body-sm shadow-xs">
+            ${text}
+          </div>
+        `;
+      } else {
+        row.className = 'flex items-start justify-end gap-space-xs ml-auto max-w-[85%] animate-in fade-in duration-200';
+        row.innerHTML = `
+          <div class="p-3 rounded-xl rounded-tr-xs bg-primary-container text-on-primary font-body-sm text-body-sm shadow-xs">
+            ${text}
+          </div>
+          <div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center shrink-0 text-label-sm text-[11px]">
+            You
+          </div>
+        `;
+      }
+
+      stream.appendChild(row);
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    function handleConsoleSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('console-user-input');
+      if (!input || !input.value.trim()) return;
+
+      const q = input.value.trim();
+      appendChatMessage('You', q, false);
+      input.value = '';
+
+      // Generate response based on keywords
+      setTimeout(() => {
+        const lower = q.toLowerCase();
+        let reply = "Our admissions office is ready to assist! ABC Academy offers Full Stack (₹25,000), Data Science (₹30,000), and AI & ML (₹35,000) with 2 free demo classes. Would you like me to book your demo slot in Tezpur or online?";
+
+        if (lower.includes('fee') || lower.includes('cost') || lower.includes('price')) {
+          reply = "Here is our transparent tuition schedule: <br>• <strong>Full Stack:</strong> ₹25,000 (6 Months)<br>• <strong>Data Science:</strong> ₹30,000 (6 Months)<br>• <strong>AI &amp; Machine Learning:</strong> ₹35,000 (4 Months)<br>Every course begins with <strong>2 free demo classes</strong> before fee payment.";
+        } else if (lower.includes('timing') || lower.includes('batch') || lower.includes('schedule') || lower.includes('hours')) {
+          reply = "We operate <strong>Monday to Saturday, 9:00 AM – 6:00 PM</strong> in Tezpur. We offer morning cohorts, evening sessions for working professionals, and weekend masterclasses. Online stream access is synchronized with each batch.";
+        } else if (lower.includes('online') || lower.includes('remote') || lower.includes('assam')) {
+          reply = "Yes! While our physical labs are centrally located in <strong>Tezpur, Assam (Pin 784001)</strong>, all lectures and practical lab sessions are streamed live with real-time screen share reviews for remote participants.";
+        } else if (lower.includes('demo')) {
+          reply = "You can attend <strong>2 complete demo lectures free of cost</strong>. This allows you to experience our mentorship style and ask questions before finalizing your enrollment.";
+        }
+
+        appendChatMessage('AI', reply, true);
+      }, 500);
+    }
+
+    function sendQuickPrompt(promptText) {
+      scrollToConsole();
+      appendChatMessage('You', promptText, false);
+      setTimeout(() => {
+        let answer = "Great question! Our curriculum is built for practical job readiness with continuous mentorship from industry developers.";
+        const lower = promptText.toLowerCase();
+
+        if (lower.includes('differences')) {
+          answer = "<strong>Full Stack Development</strong> (₹25,000, 6 mos) focuses on frontend & backend web applications (React, Node, Express, MongoDB). <br><br><strong>Data Science</strong> (₹30,000, 6 mos) focuses on statistical modeling, SQL pipelines, and BI forecasting (Python, Pandas, Scikit-Learn).";
+        } else if (lower.includes('demo')) {
+          answer = "The <strong>2 Free Demo Classes</strong> allow you to attend introductory live classes, test the learning environment, and speak with faculty prior to making any financial commitment.";
+        } else if (lower.includes('timings')) {
+          answer = "Timings are Monday–Saturday from 9:00 AM to 6:00 PM with batch splits (Morning: 10 AM, Afternoon: 2 PM, Evening: 6 PM, plus Weekend cohorts).";
+        } else if (lower.includes('tezpur') || lower.includes('facilities')) {
+          answer = "Our Tezpur campus (Pin: 784001) features air-conditioned computer workstations, high-speed WiFi, dedicated code-review pods, and direct in-person mentorship.";
+        } else if (lower.includes('courses') && lower.includes('fees')) {
+          answer = "We offer three pathways: <strong>Full Stack</strong> at ₹25,000, <strong>Data Science</strong> at ₹30,000, and <strong>AI &amp; Machine Learning</strong> at ₹35,000. All include 2 free demo classes.";
+        }
+
+        appendChatMessage('AI', answer, true);
+      }, 500);
+    }
+
+    function askAIAboutCourse(courseDetail) {
+      scrollToConsole();
+      const prompt = `Tell me more about the ${courseDetail} curriculum and schedule.`;
+      appendChatMessage('You', prompt, false);
+      setTimeout(() => {
+        appendChatMessage('AI', `Here are the details for <strong>${courseDetail}</strong>: Our curriculum emphasizes direct project build-outs, production code standards, and includes 2 free demo classes. Would you like to schedule your trial session today?`, true);
+      }, 500);
+    }
+
+    function executeHeroQuery() {
+      const input = document.getElementById('hero-quick-input');
+      if (!input || !input.value.trim()) return;
+      const text = input.value.trim();
+      input.value = '';
+      sendQuickPrompt(text);
+    }
+  </script>
+</div></main><footer class="w-full bg-inverse-surface text-inverse-on-surface shadow-[0_-1px_8px_rgba(0,0,0,0.06)]"><div class="max-w-[1360px] mx-auto px-margin py- space-sm min-h-[84px] flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm"><div class="flex flex-col sm:flex-row items-center gap-space-xs sm:gap-space-sm text-center sm:text-left"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-inverse-on-surface">ABC Academy</span><span class="text-outline-variant hidden sm:inline">•</span><span class="text-inverse-on-surface/80 font-body-sm text-body-sm">Technical Training &amp; AI Support</span></div><span class="text-outline-variant hidden md:inline">•</span><span class="text-inverse-on-surface/70 font-label-sm text-label-sm">Tezpur, Assam Campus</span></div><nav class="flex items-center gap-space-md text-inverse-on-surface/80" data-active-classes="text-tertiary-fixed underline"><a class="hover:text-inverse-on-surface transition-colors font-label-md text-label-md" data-path="courses" href="#">Courses</a><a aria-current="page" class="transition-colors font-label-md text-tertiary-fixed underline" data-path="ai-assistant" href="#">AI Assistant</a><a class="hover:text-inverse-on-surface transition-colors font-label-md text-label-md" data-path="admin-portal" href="#">Admin Leads</a></nav><div class="flex flex-wrap items-center justify-center gap-space-md text-inverse-on-surface/80 font-label-sm text-label-sm"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">call</span><span>+91 (0) 3712 295000</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">mail</span><span>admissions@abcacademy.in</span></div><span class="text-outline-variant hidden lg:inline">•</span><span class="text-inverse-on-surface/60">© 2025 ABC Academy.</span></div></div></footer></body></html>

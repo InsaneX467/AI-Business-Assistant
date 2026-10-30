@@ -1,14 +1,21 @@
 .app-content {
   flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .app-footer {
   background-color: var(--slate-900);
   color: var(--slate-400);
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   border-top: 1px solid var(--slate-800);
-  margin-top: 2rem;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .footer-container {
@@ -21,7 +28,7 @@
 .footer-left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: var(--slate-300);
   font-weight: 500;
 }
@@ -38,6 +45,6 @@
   .footer-container {
     flex-direction: column;
     text-align: center;
-    gap: 0.5rem;
+    gap: 0.2rem;
   }
 }

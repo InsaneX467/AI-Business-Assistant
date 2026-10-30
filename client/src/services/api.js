@@ -13,10 +13,11 @@ const api = axios.create({
 /**
  * Send customer message to AI Chat API
  * @param {string} message 
+ * @param {string} [sessionId]
  */
-export const sendChatMessage = async (message) => {
+export const sendChatMessage = async (message, sessionId) => {
   try {
-    const response = await api.post('/chat', { message });
+    const response = await api.post('/chat', { message, sessionId });
     return response.data;
   } catch (error) {
     console.error('[API Error - sendChatMessage]:', error);
@@ -56,15 +57,45 @@ export const submitLead = async (leadData) => {
 
 /**
  * Get all captured leads for Admin Dashboard
+ * @param {string} [adminKey]
  */
-export const fetchLeads = async () => {
+export const fetchLeads = async (adminKey) => {
   try {
-    const response = await api.get('/leads');
+    const headers = {};
+    if (adminKey) {
+      headers['Authorization'] = `Bearer ${adminKey}`;
+    }
+    const response = await api.get('/leads', { headers });
     return response.data;
   } catch (error) {
     console.error('[API Error - fetchLeads]:', error);
     const errorMessage = error.response?.data?.message || error.message || 'Failed to fetch leads from server.';
-    throw new Error(errorMessage);
+    const err = new Error(errorMessage);
+    err.status = error.response?.status;
+    throw err;
+  }
+};
+
+/**
+ * Update lead status
+ * @param {string} leadId 
+ * @param {string} status 
+ * @param {string} [adminKey]
+ */
+export const updateLeadStatus = async (leadId, status, adminKey) => {
+  try {
+    const headers = {};
+    if (adminKey) {
+      headers['Authorization'] = `Bearer ${adminKey}`;
+    }
+    const response = await api.patch(`/leads/${leadId}/status`, { status }, { headers });
+    return response.data;
+  } catch (error) {
+    console.error('[API Error - updateLeadStatus]:', error);
+    const errorMessage = error.response?.data?.message || error.message || 'Failed to update lead status.';
+    const err = new Error(errorMessage);
+    err.status = error.response?.status;
+    throw err;
   }
 };
 

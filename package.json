@@ -1,0 +1,11 @@
+{
+  "name": "ai-business-assistant-root",
+  "version": "1.0.0",
+  "description": "Root project package.json for AI Business Assistant",
+  "scripts": {
+    "dev": "npm --prefix server run dev",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start"
+  }
+}

@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HomePage } from './pages/HomePage';
+import { CoursesPage } from './pages/CoursesPage';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { LeadModal } from './components/LeadModal';
-import { School, Heart } from 'lucide-react';
+import { getBusinessInfo } from './services/api';
 import './App.css';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('chat');
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [businessProfile, setBusinessProfile] = useState(null);
+
+  useEffect(() => {
+    getBusinessInfo()
+      .then((res) => {
+        if (res.success && res.data) {
+          setBusinessProfile(res.data);
+        }
+      })
+      .catch((err) => {
+        console.warn('[App] Could not fetch business info:', err.message);
+      });
+  }, []);
+
+  const handleOpenLeadForm = (courseName = '') => {
+    setSelectedCourse(courseName);
+    setIsLeadModalOpen(true);
+  };
 
   return (
     <div className="app-container">
@@ -16,12 +36,18 @@ export function App() {
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onOpenLeadForm={() => setIsLeadModalOpen(true)}
+        onOpenLeadForm={() => handleOpenLeadForm('')}
+        businessProfile={businessProfile}
       />
 
-      {/* Main Page Area */}
+      {/* Main Single-Frame Page Content */}
       <div className="app-content">
-        {activeTab === 'home' && <HomePage />}
+        {activeTab === 'chat' && (
+          <HomePage onNavigate={setActiveTab} businessProfile={businessProfile} />
+        )}
+        {activeTab === 'courses' && (
+          <CoursesPage onSelectCourse={handleOpenLeadForm} businessProfile={businessProfile} />
+        )}
         {activeTab === 'admin' && <AdminDashboard />}
       </div>
 
@@ -29,20 +55,8 @@ export function App() {
       <LeadModal
         isOpen={isLeadModalOpen}
         onClose={() => setIsLeadModalOpen(false)}
+        defaultRequirement={selectedCourse}
       />
-
-      {/* Footer */}
-      <footer className="app-footer">
-        <div className="container footer-container">
-          <div className="footer-left">
-            <School size={18} className="footer-icon" />
-            <span>ABC Academy • AI Business Assistant MVP</span>
-          </div>
-          <div className="footer-right">
-            <span>Powered by Node.js, Express, React, MongoDB & Gemini LLM</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

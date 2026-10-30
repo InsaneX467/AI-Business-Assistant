@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ABC Academy | AI Business Assistant - Courses</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#172554',
+            },
+            accent: {
+              emerald: '#10b981',
+              cyan: '#06b6d4',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'card-hover': '0 20px 35px -8px rgba(37, 99, 235, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.04)',
+            'subtle-glow': '0 0 25px rgba(37, 99, 235, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Lucide Icons via unpkg -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Custom Stylesheet for fine tweaks -->
+<style data-purpose="custom-enhancements">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    
+    .tech-pill {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tech-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
+    }
+
+    /* Modal transition utility */
+    #enquiryModal {
+      transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-blue-100 selection:text-blue-900 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(219,234,254,0.4),rgba(255,255,255,0))]">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand & Title Block -->
+<div class="flex items-center space-x-3.5">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+<i class="w-6 h-6 stroke-[2.2]" data-lucide="graduation-cap"></i>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-xl tracking-tight text-slate-900">ABC Academy</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider bg-blue-100/90 text-blue-700 border border-blue-200/70 uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse mr-1"></span>
+              AI POWERED
+            </span>
+</div>
+<p class="text-xs font-medium text-slate-500">Technical Training &amp; AI Support</p>
+</div>
+</div>
+<!-- Navigation Segment Tabs -->
+<nav class="hidden md:flex items-center bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-inner">
+<a class="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 hover:text-slate-900 transition-colors" href="#ai-assistant">
+          AI Assistant
+        </a>
+<a class="px-5 py-2 text-sm font-bold rounded-xl bg-white text-blue-700 shadow-sm transition-all border border-slate-200/60" href="#courses">
+          Courses
+        </a>
+<a class="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 hover:text-slate-900 transition-colors" href="#admin">
+          Admin
+        </a>
+</nav>
+<!-- Contact & Action Button -->
+<div class="flex items-center space-x-5">
+<a class="hidden lg:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors group" href="tel:+919876543210">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+</div>
+<span>+91 98765 43210</span>
+</a>
+<!-- Main Enquire CTA -->
+<button class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 transition-all transform active:scale-95" onclick="toggleModal(true, 'General Enquire / Call Back')">
+<i class="w-4 h-4" data-lucide="sparkles"></i>
+<span>Enquire / Call Back</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+<!-- Section Intro Banner / Filter Controls -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="inline-flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-md border border-blue-100 mb-2">
+<i class="w-3.5 h-3.5 fill-blue-600 text-blue-600" data-lucide="zap"></i>
+          Career-Accelerating Tracks • Live Labs &amp; Hybrid
+        </div>
+<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Industry-Ready Tech Programs with AI Mentorship
+        </h1>
+<p class="text-sm text-slate-500 mt-1">
+          Explore job-aligned curricula designed with 1-on-1 industry reviews, production projects, and verified placement support.
+        </p>
+</div>
+<!-- Quick Category Pills and Brochure Download -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-600 text-white shadow-sm">
+          All Programs (3)
+        </span>
+<button class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-xs" onclick="showNotification('Downloading 2025 Comprehensive Syllabus PDF...')">
+<i class="w-3.5 h-3.5" data-lucide="download"></i>
+<span>Curriculum PDF</span>
+</button>
+</div>
+</div>
+<!-- BEGIN: CourseCardsGrid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+<!-- ================= CARD 1: Full Stack Development ================= -->
+<div class="group bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:border-blue-500 hover:shadow-card-hover transition-all duration-300 flex flex-col relative overflow-hidden">
+<!-- Top Accent Strip -->
+<div class="h-1.5 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400"></div>
+<div class="p-6 sm:p-7 flex flex-col flex-grow">
+<!-- Tags & Pricing Header -->
+<div class="flex items-start justify-between gap-2 mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
+              Web Engineering
+            </span>
+<div class="text-right">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ₹25,000 <span class="text-[11px] font-normal text-emerald-600 ml-1">(Sample Demo Price)</span>
+</span>
+<p class="text-[10px] text-slate-400 font-medium mt-0.5">2 Free Demo Classes Included</p>
+</div>
+</div>
+<!-- Icon & Title -->
+<div class="flex items-center space-x-3.5 mb-3">
+<div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white transition-all duration-200">
+<i class="w-6 h-6" data-lucide="code-2"></i>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                Full Stack Development
+              </h2>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-medium">
+<i class="w-3.5 h-3.5 fill-amber-400 text-amber-400" data-lucide="star"></i>
+<span class="font-bold text-slate-700">4.9</span>
+<span class="text-slate-400">(480+ Learners Trained)</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="text-sm text-slate-600 leading-relaxed mb-5">
+            Complete web development program covering HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB.
+          </p>
+<!-- Core Curriculum Badges / Tech Stack -->
+<div class="mb-5">
+<p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">Technologies &amp; Skills Covered</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">React 19</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Node.js</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Express</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">MongoDB</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Next.js</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">REST APIs</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Git &amp; CI/CD</span>
+</div>
+</div>
+<!-- Key Program Highlights -->
+<div class="bg-slate-50/80 rounded-2xl p-3.5 border border-slate-100 mb-6 space-y-2">
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>12 Hands-on Real World Projects &amp; SaaS Deployments</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Dedicated 1-on-1 Code Review by Senior Leads</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Next Cohort: <strong class="text-blue-700 ml-1">Starts This Monday</strong></span>
+</div>
+</div>
+<div class="mt-auto">
+<!-- Meta Specs (Duration & Mode) -->
+<div class="flex items-center justify-between text-xs text-slate-500 font-medium pt-3 pb-4 border-t border-slate-100">
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="clock"></i>
+<span class="text-slate-700 font-semibold">6 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="laptop"></i>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+<!-- Action CTA -->
+<button class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-800 hover:text-white font-semibold text-sm transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white shadow-xs" onclick="toggleModal(true, 'Full Stack Development')">
+<span>Enquire / View Program</span>
+<i class="w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= CARD 2: Data Science ================= -->
+<div class="group bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:border-blue-500 hover:shadow-card-hover transition-all duration-300 flex flex-col relative overflow-hidden">
+<!-- Top Accent Strip -->
+<div class="h-1.5 w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"></div>
+<div class="p-6 sm:p-7 flex flex-col flex-grow">
+<!-- Tags & Pricing Header -->
+<div class="flex items-start justify-between gap-2 mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-50 text-cyan-800 border border-cyan-200/60">
+              Analytics &amp; ML
+            </span>
+<div class="text-right">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ₹30,000 <span class="text-[11px] font-normal text-emerald-600 ml-1">(Sample Demo Price)</span>
+</span>
+<p class="text-[10px] text-slate-400 font-medium mt-0.5">2 Free Demo Classes Included</p>
+</div>
+</div>
+<!-- Icon & Title -->
+<div class="flex items-center space-x-3.5 mb-3">
+<div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center border border-cyan-100 group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white transition-all duration-200">
+<i class="w-6 h-6" data-lucide="bar-chart-3"></i>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                Data Science
+              </h2>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-medium">
+<i class="w-3.5 h-3.5 fill-amber-400 text-amber-400" data-lucide="star"></i>
+<span class="font-bold text-slate-700">4.85</span>
+<span class="text-slate-400">(390+ Learners Trained)</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="text-sm text-slate-600 leading-relaxed mb-5">
+            Data analysis, Python, SQL, Statistics, Data Visualization, and machine learning fundamentals.
+          </p>
+<!-- Core Curriculum Badges / Tech Stack -->
+<div class="mb-5">
+<p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">Technologies &amp; Skills Covered</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Python</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Advanced SQL</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Pandas / NumPy</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Scikit-Learn</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Tableau</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">PowerBI</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Statistical Modeling</span>
+</div>
+</div>
+<!-- Key Program Highlights -->
+<div class="bg-slate-50/80 rounded-2xl p-3.5 border border-slate-100 mb-6 space-y-2">
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>10 Capstone Industry Case Studies &amp; Financial Models</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Live Mentorship on Kaggle Competition Strategies</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Next Cohort: <strong class="text-blue-700 ml-1">Weekend &amp; Evening Batch</strong></span>
+</div>
+</div>
+<div class="mt-auto">
+<!-- Meta Specs (Duration & Mode) -->
+<div class="flex items-center justify-between text-xs text-slate-500 font-medium pt-3 pb-4 border-t border-slate-100">
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="clock"></i>
+<span class="text-slate-700 font-semibold">6 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="laptop"></i>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+<!-- Action CTA -->
+<button class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-blue-600 text-slate-800 hover:text-white font-semibold text-sm transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white shadow-xs" onclick="toggleModal(true, 'Data Science')">
+<span>Enquire / View Program</span>
+<i class="w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= CARD 3: AI & Machine Learning ================= -->
+<div class="group bg-white rounded-3xl border-2 border-blue-500/80 shadow-md hover:shadow-card-hover transition-all duration-300 flex flex-col relative overflow-hidden ring-4 ring-blue-500/5">
+<!-- Top Featured Badge Strip -->
+<div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-[11px] font-bold py-1 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-1.5">
+<i class="w-3.5 h-3.5 fill-amber-300 text-amber-300" data-lucide="flame"></i>
+          Most In-Demand Career Track for 2025
+        </div>
+<div class="p-6 sm:p-7 flex flex-col flex-grow">
+<!-- Tags & Pricing Header -->
+<div class="flex items-start justify-between gap-2 mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100/80 text-blue-800 border border-blue-300">
+              Specialized AI
+            </span>
+<div class="text-right">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ₹35,000 <span class="text-[11px] font-normal text-emerald-600 ml-1">(Sample Demo Price)</span>
+</span>
+<p class="text-[10px] text-slate-400 font-medium mt-0.5">2 Free Demo Classes Included</p>
+</div>
+</div>
+<!-- Icon & Title -->
+<div class="flex items-center space-x-3.5 mb-3">
+<div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-all duration-200">
+<i class="w-6 h-6" data-lucide="cpu"></i>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                AI &amp; Machine Learning
+              </h2>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-medium">
+<i class="w-3.5 h-3.5 fill-amber-400 text-amber-400" data-lucide="star"></i>
+<span class="font-bold text-slate-700">4.96</span>
+<span class="text-slate-400">(520+ Learners Trained)</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<p class="text-sm text-slate-600 leading-relaxed mb-5">
+            Advanced program covering Deep Learning, NLP, Computer Vision, Generative AI, and LLMs.
+          </p>
+<!-- Core Curriculum Badges / Tech Stack -->
+<div class="mb-5">
+<p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">Technologies &amp; Skills Covered</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 font-semibold border border-blue-200">PyTorch</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Transformers</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 font-semibold border border-blue-200">LangChain</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Local LLMs (Ollama)</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">OpenCV</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">Vector DBs</span>
+<span class="tech-pill text-xs px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium border border-slate-200/80">RAG Architectures</span>
+</div>
+</div>
+<!-- Key Program Highlights -->
+<div class="bg-blue-50/50 rounded-2xl p-3.5 border border-blue-100 mb-6 space-y-2">
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Build &amp; Deploy 4 Custom Fine-Tuned AI Agents</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Exclusive GPU Lab Server Access for Training Models</span>
+</div>
+<div class="flex items-center text-xs text-slate-700 font-medium">
+<i class="w-4 h-4 text-emerald-500 mr-2 shrink-0" data-lucide="check-circle-2"></i>
+<span>Status: <strong class="text-emerald-700 ml-1">Few Seats Left for Next Intake</strong></span>
+</div>
+</div>
+<div class="mt-auto">
+<!-- Meta Specs (Duration & Mode) -->
+<div class="flex items-center justify-between text-xs text-slate-500 font-medium pt-3 pb-4 border-t border-slate-100">
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="clock"></i>
+<span class="text-slate-700 font-semibold">4 Months</span>
+</div>
+<div class="flex items-center gap-1.5">
+<i class="w-4 h-4 text-slate-400" data-lucide="laptop"></i>
+<span>Online &amp; Classroom</span>
+</div>
+</div>
+<!-- Action CTA -->
+<button class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-600/20 hover:shadow-blue-600/30" onclick="toggleModal(true, 'AI &amp; Machine Learning')">
+<span>Enquire / View Program</span>
+<i class="w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- END: CourseCardsGrid -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomStripBanner -->
+<footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-4 w-full">
+<div class="bg-gradient-to-r from-slate-900 via-slate-900 to-blue-950 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-800/80">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+<!-- Left Section: Included Facilities -->
+<div class="flex items-start sm:items-center space-x-3.5">
+<div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+<i class="w-5 h-5" data-lucide="shield-check"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+<span>Included Facilities</span>
+</h3>
+<p class="text-sm font-medium text-slate-300 mt-0.5">
+              High-speed WiFi enabled computer labs <span class="text-slate-500 mx-1.5">•</span> 1-on-1 mentorship &amp; code reviews
+            </p>
+</div>
+</div>
+<div class="hidden lg:block h-8 w-px bg-slate-800"></div>
+<!-- Right Section: FAQs Quick Answer -->
+<div class="flex items-start sm:items-center space-x-3.5">
+<div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0">
+<i class="w-5 h-5" data-lucide="help-circle"></i>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-blue-400">
+              FAQS: Do you offer demo classes?
+            </h3>
+<p class="text-sm font-medium text-slate-300 mt-0.5">
+              Yes, ABC Academy offers 2 free demo classes before enrollment.
+            </p>
+</div>
+</div>
+<!-- Quick Action on Footer -->
+<div class="pt-2 lg:pt-0 shrink-0">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase border border-slate-700/80 transition-colors" onclick="toggleModal(true, '2 Free Demo Classes Booking')">
+<span>Book Free Demo</span>
+<i class="w-3.5 h-3.5" data-lucide="chevron-right"></i>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: BottomStripBanner -->
+<!-- BEGIN: Interactive Callback / Enquiry Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all" id="enquiryModal">
+<div class="bg-white w-full max-w-md mx-4 rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100 transform scale-95 transition-all duration-200" id="modalCard">
+<!-- Modal Header -->
+<div class="flex items-center justify-between pb-4 border-b border-slate-100">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<i class="w-4 h-4" data-lucide="phone-outgoing"></i>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 text-base" id="modalTitle">Enquire / Call Back</h3>
+<p class="text-xs text-slate-500">ABC Academy Admissions Team</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors" onclick="toggleModal(false)">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+</div>
+<!-- Modal Form -->
+<form class="mt-5 space-y-4" onsubmit="handleFormSubmit(event)">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Selected Program</label>
+<input class="w-full text-xs font-bold bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-blue-700 focus:outline-none cursor-default" id="selectedProgramInput" readonly="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+<input class="w-full text-sm bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number (WhatsApp preferred)</label>
+<input class="w-full text-sm bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-800 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none transition-all" placeholder="+91 98765 XXXXX" required="" type="tel"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1">Mode Preference</label>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<label class="flex items-center gap-2 p-2.5 border rounded-xl border-slate-200 cursor-pointer hover:border-blue-500 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50">
+<input checked="" class="text-blue-600 focus:ring-0" name="learning_mode" type="radio"/>
+<span class="font-medium text-slate-700">Classroom Lab</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 border rounded-xl border-slate-200 cursor-pointer hover:border-blue-500 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/50">
+<input class="text-blue-600 focus:ring-0" name="learning_mode" type="radio"/>
+<span class="font-medium text-slate-700">Online Live</span>
+</label>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-md shadow-blue-600/25 transition-all" type="submit">
+            Request Instant Callback &amp; Demo Pass
+          </button>
+<p class="text-center text-[11px] text-slate-400 mt-2.5 flex items-center justify-center gap-1">
+<i class="w-3 h-3" data-lucide="lock"></i> We respect privacy. No spam guaranteed.
+          </p>
+</div>
+</form>
+</div>
+</div>
+<!-- END: Interactive Callback / Enquiry Modal -->
+<!-- Toast Notification element -->
+<div class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-sm transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<i class="w-4 h-4 text-emerald-400" data-lucide="check"></i>
+<span id="toastMessage">Action completed successfully.</span>
+</div>
+<!-- Lucide Script Init and Interactive Helpers -->
+<script data-purpose="page-interactivity">
+    // Initialize icons
+    lucide.createIcons();
+
+    // Modal controllers
+    function toggleModal(show, programName = '') {
+      const modal = document.getElementById('enquiryModal');
+      const modalCard = document.getElementById('modalCard');
+      const programInput = document.getElementById('selectedProgramInput');
+
+      if (show) {
+        programInput.value = programName || 'General Program Enquiry';
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        modalCard.classList.remove('scale-95');
+        modalCard.classList.add('scale-100');
+      } else {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
+        modalCard.classList.add('scale-95');
+        modalCard.classList.remove('scale-100');
+      }
+    }
+
+    // Form submit feedback
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      toggleModal(false);
+      showNotification("Thank you! Our admission advisor will call you within 15 minutes.");
+    }
+
+    // Toast alert helper
+    function showNotification(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      
+      toastMsg.innerText = message;
+      toast.classList.remove('translate-y-16', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-16', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 4000);
+    }
+  </script>
+</body></html>
